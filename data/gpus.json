@@ -1,0 +1,461 @@
+{
+  "nvidia b200": {
+    "int8": { "flops": 9000, "flops_unit": "tera" },
+    "float8": { "flops": 9000, "flops_unit": "tera" },
+    "float16": { "flops": 4500, "flops_unit": "tera" },
+    "bfloat16": { "flops": 4500, "flops_unit": "tera" },
+    "tfloat32": { "flops": 2250, "flops_unit": "tera" },
+    "float32": { "flops": 80, "flops_unit": "tera" },
+    "float64": { "flops": 40, "flops_unit": "tera" }
+  },
+  "nvidia h200": {
+    "int8": { "flops": 3958, "flops_unit": "tera" },
+    "float8": { "flops": 3958, "flops_unit": "tera" },
+    "float16": { "flops": 1979, "flops_unit": "tera" },
+    "bfloat16": { "flops": 1979, "flops_unit": "tera" },
+    "tfloat32": { "flops": 989, "flops_unit": "tera" },
+    "float32": { "flops": 67, "flops_unit": "tera" },
+    "float64": { "flops": 67, "flops_unit": "tera" }
+  },
+  "nvidia h100": {
+    "int8": { "flops": 3958, "flops_unit": "tera" },
+    "float8": { "flops": 3958, "flops_unit": "tera" },
+    "float16": { "flops": 1979, "flops_unit": "tera" },
+    "bfloat16": { "flops": 1979, "flops_unit": "tera" },
+    "tfloat32": { "flops": 989, "flops_unit": "tera" },
+    "float32": { "flops": 67, "flops_unit": "tera" },
+    "float64": { "flops": 67, "flops_unit": "tera" }
+  },
+  "nvidia l40s": {
+    "int8": { "flops": 1466, "flops_unit": "tera" },
+    "float8": { "flops": 1466, "flops_unit": "tera" },
+    "float16": { "flops": 733, "flops_unit": "tera" },
+    "bfloat16": { "flops": 733, "flops_unit": "tera" },
+    "tfloat32": { "flops": 366, "flops_unit": "tera" },
+    "float32": { "flops": 91.6, "flops_unit": "tera" },
+    "float64": { "flops": 1.4, "flops_unit": "tera" }
+  },
+  "nvidia a100": {
+    "int8": { "flops": 1248, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 624, "flops_unit": "tera" },
+    "bfloat16": { "flops": 624, "flops_unit": "tera" },
+    "tfloat32": { "flops": 312, "flops_unit": "tera" },
+    "float32": { "flops": 19.5, "flops_unit": "tera" },
+    "float64": { "flops": 19.5, "flops_unit": "tera" }
+  },
+  "nvidia rtx pro 6000 blackwell": {
+    "int8": { "flops": 2400, "flops_unit": "tera" },
+    "float8": { "flops": 2400, "flops_unit": "tera" },
+    "float16": { "flops": 1200, "flops_unit": "tera" },
+    "bfloat16": { "flops": 1200, "flops_unit": "tera" },
+    "tfloat32": { "flops": 600, "flops_unit": "tera" },
+    "float32": { "flops": 125, "flops_unit": "tera" },
+    "float64": { "flops": 2.0, "flops_unit": "tera" }
+  },
+  "nvidia rtx 6000 ada generation": {
+    "int8": { "flops": 1457, "flops_unit": "tera" },
+    "float8": { "flops": 1457, "flops_unit": "tera" },
+    "float16": { "flops": 728, "flops_unit": "tera" },
+    "bfloat16": { "flops": 728, "flops_unit": "tera" },
+    "tfloat32": { "flops": 364, "flops_unit": "tera" },
+    "float32": { "flops": 91.1, "flops_unit": "tera" },
+    "float64": { "flops": 1.4, "flops_unit": "tera" }
+  },
+  "nvidia rtx pro 5000 blackwell": {
+    "int8": { "flops": 1800, "flops_unit": "tera" },
+    "float8": { "flops": 1800, "flops_unit": "tera" },
+    "float16": { "flops": 900, "flops_unit": "tera" },
+    "bfloat16": { "flops": 900, "flops_unit": "tera" },
+    "tfloat32": { "flops": 450, "flops_unit": "tera" },
+    "float32": { "flops": 95, "flops_unit": "tera" },
+    "float64": { "flops": 1.5, "flops_unit": "tera" }
+  },
+  "nvidia rtx 5000 ada generation": {
+    "int8": { "flops": 1046, "flops_unit": "tera" },
+    "float8": { "flops": 1046, "flops_unit": "tera" },
+    "float16": { "flops": 523, "flops_unit": "tera" },
+    "bfloat16": { "flops": 523, "flops_unit": "tera" },
+    "tfloat32": { "flops": 261, "flops_unit": "tera" },
+    "float32": { "flops": 65.3, "flops_unit": "tera" },
+    "float64": { "flops": 1.0, "flops_unit": "tera" }
+  },
+  "nvidia rtx pro 4500 blackwell": {
+    "int8": { "flops": 1400, "flops_unit": "tera" },
+    "float8": { "flops": 1400, "flops_unit": "tera" },
+    "float16": { "flops": 700, "flops_unit": "tera" },
+    "bfloat16": { "flops": 700, "flops_unit": "tera" },
+    "tfloat32": { "flops": 350, "flops_unit": "tera" },
+    "float32": { "flops": 75, "flops_unit": "tera" },
+    "float64": { "flops": 1.2, "flops_unit": "tera" }
+  },
+  "nvidia rtx pro 4000 blackwell": {
+    "int8": { "flops": 1000, "flops_unit": "tera" },
+    "float8": { "flops": 1000, "flops_unit": "tera" },
+    "float16": { "flops": 500, "flops_unit": "tera" },
+    "bfloat16": { "flops": 500, "flops_unit": "tera" },
+    "tfloat32": { "flops": 250, "flops_unit": "tera" },
+    "float32": { "flops": 50, "flops_unit": "tera" },
+    "float64": { "flops": 0.8, "flops_unit": "tera" }
+  },
+  "nvidia quadro rtx a6000": {
+    "int8": { "flops": 614, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 307, "flops_unit": "tera" },
+    "bfloat16": { "flops": 307, "flops_unit": "tera" },
+    "tfloat32": { "flops": 153, "flops_unit": "tera" },
+    "float32": { "flops": 38.7, "flops_unit": "tera" },
+    "float64": { "flops": 1.2, "flops_unit": "tera" }
+  },
+  "nvidia rtx a5000": {
+    "int8": { "flops": 444, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 222, "flops_unit": "tera" },
+    "bfloat16": { "flops": 222, "flops_unit": "tera" },
+    "tfloat32": { "flops": 111, "flops_unit": "tera" },
+    "float32": { "flops": 27.8, "flops_unit": "tera" },
+    "float64": { "flops": 0.87, "flops_unit": "tera" }
+  },
+  "nvidia titan rtx": {
+    "int8": { "flops": 261, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 130, "flops_unit": "tera" },
+    "bfloat16": { "flops": 0, "flops_unit": "tera" },
+    "tfloat32": { "flops": 0, "flops_unit": "tera" },
+    "float32": { "flops": 16.3, "flops_unit": "tera" },
+    "float64": { "flops": 0.51, "flops_unit": "tera" }
+  },
+  "nvidia titan v": {
+    "int8": { "flops": 0, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 110, "flops_unit": "tera" },
+    "bfloat16": { "flops": 0, "flops_unit": "tera" },
+    "tfloat32": { "flops": 0, "flops_unit": "tera" },
+    "float32": { "flops": 14.9, "flops_unit": "tera" },
+    "float64": { "flops": 7.4, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5090": {
+    "int8": { "flops": 3300, "flops_unit": "tera" },
+    "float8": { "flops": 3300, "flops_unit": "tera" },
+    "float16": { "flops": 1650, "flops_unit": "tera" },
+    "bfloat16": { "flops": 1650, "flops_unit": "tera" },
+    "tfloat32": { "flops": 825, "flops_unit": "tera" },
+    "float32": { "flops": 165, "flops_unit": "tera" },
+    "float64": { "flops": 2.5, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5090 d v2": {
+    "int8": { "flops": 3000, "flops_unit": "tera" },
+    "float8": { "flops": 3000, "flops_unit": "tera" },
+    "float16": { "flops": 1500, "flops_unit": "tera" },
+    "bfloat16": { "flops": 1500, "flops_unit": "tera" },
+    "tfloat32": { "flops": 750, "flops_unit": "tera" },
+    "float32": { "flops": 150, "flops_unit": "tera" },
+    "float64": { "flops": 2.3, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4090": {
+    "int8": { "flops": 1321, "flops_unit": "tera" },
+    "float8": { "flops": 1321, "flops_unit": "tera" },
+    "float16": { "flops": 660.6, "flops_unit": "tera" },
+    "bfloat16": { "flops": 660.6, "flops_unit": "tera" },
+    "tfloat32": { "flops": 330.3, "flops_unit": "tera" },
+    "float32": { "flops": 82.6, "flops_unit": "tera" },
+    "float64": { "flops": 1.29, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5080": {
+    "int8": { "flops": 2200, "flops_unit": "tera" },
+    "float8": { "flops": 2200, "flops_unit": "tera" },
+    "float16": { "flops": 1100, "flops_unit": "tera" },
+    "bfloat16": { "flops": 1100, "flops_unit": "tera" },
+    "tfloat32": { "flops": 550, "flops_unit": "tera" },
+    "float32": { "flops": 110, "flops_unit": "tera" },
+    "float64": { "flops": 1.7, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4090 d": {
+    "int8": { "flops": 1184, "flops_unit": "tera" },
+    "float8": { "flops": 1184, "flops_unit": "tera" },
+    "float16": { "flops": 592, "flops_unit": "tera" },
+    "bfloat16": { "flops": 592, "flops_unit": "tera" },
+    "tfloat32": { "flops": 296, "flops_unit": "tera" },
+    "float32": { "flops": 74, "flops_unit": "tera" },
+    "float64": { "flops": 1.15, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4080 super": {
+    "int8": { "flops": 836, "flops_unit": "tera" },
+    "float8": { "flops": 836, "flops_unit": "tera" },
+    "float16": { "flops": 418, "flops_unit": "tera" },
+    "bfloat16": { "flops": 418, "flops_unit": "tera" },
+    "tfloat32": { "flops": 209, "flops_unit": "tera" },
+    "float32": { "flops": 52.2, "flops_unit": "tera" },
+    "float64": { "flops": 0.81, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4080": {
+    "int8": { "flops": 780, "flops_unit": "tera" },
+    "float8": { "flops": 780, "flops_unit": "tera" },
+    "float16": { "flops": 390, "flops_unit": "tera" },
+    "bfloat16": { "flops": 390, "flops_unit": "tera" },
+    "tfloat32": { "flops": 195, "flops_unit": "tera" },
+    "float32": { "flops": 48.7, "flops_unit": "tera" },
+    "float64": { "flops": 0.76, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5070 ti": {
+    "int8": { "flops": 1600, "flops_unit": "tera" },
+    "float8": { "flops": 1600, "flops_unit": "tera" },
+    "float16": { "flops": 800, "flops_unit": "tera" },
+    "bfloat16": { "flops": 800, "flops_unit": "tera" },
+    "tfloat32": { "flops": 400, "flops_unit": "tera" },
+    "float32": { "flops": 80, "flops_unit": "tera" },
+    "float64": { "flops": 1.25, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3090 ti": {
+    "int8": { "flops": 320, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 160, "flops_unit": "tera" },
+    "bfloat16": { "flops": 160, "flops_unit": "tera" },
+    "tfloat32": { "flops": 80, "flops_unit": "tera" },
+    "float32": { "flops": 40, "flops_unit": "tera" },
+    "float64": { "flops": 0.62, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4070 ti super": {
+    "int8": { "flops": 706, "flops_unit": "tera" },
+    "float8": { "flops": 706, "flops_unit": "tera" },
+    "float16": { "flops": 353, "flops_unit": "tera" },
+    "bfloat16": { "flops": 353, "flops_unit": "tera" },
+    "tfloat32": { "flops": 176, "flops_unit": "tera" },
+    "float32": { "flops": 44.1, "flops_unit": "tera" },
+    "float64": { "flops": 0.69, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5070": {
+    "int8": { "flops": 1200, "flops_unit": "tera" },
+    "float8": { "flops": 1200, "flops_unit": "tera" },
+    "float16": { "flops": 600, "flops_unit": "tera" },
+    "bfloat16": { "flops": 600, "flops_unit": "tera" },
+    "tfloat32": { "flops": 300, "flops_unit": "tera" },
+    "float32": { "flops": 60, "flops_unit": "tera" },
+    "float64": { "flops": 0.93, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3090": {
+    "int8": { "flops": 284, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 142, "flops_unit": "tera" },
+    "bfloat16": { "flops": 142, "flops_unit": "tera" },
+    "tfloat32": { "flops": 71, "flops_unit": "tera" },
+    "float32": { "flops": 35.6, "flops_unit": "tera" },
+    "float64": { "flops": 0.55, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3080 ti": {
+    "int8": { "flops": 273, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 136, "flops_unit": "tera" },
+    "bfloat16": { "flops": 136, "flops_unit": "tera" },
+    "tfloat32": { "flops": 68, "flops_unit": "tera" },
+    "float32": { "flops": 34.1, "flops_unit": "tera" },
+    "float64": { "flops": 0.53, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4070 ti": {
+    "int8": { "flops": 641, "flops_unit": "tera" },
+    "float8": { "flops": 641, "flops_unit": "tera" },
+    "float16": { "flops": 320, "flops_unit": "tera" },
+    "bfloat16": { "flops": 320, "flops_unit": "tera" },
+    "tfloat32": { "flops": 160, "flops_unit": "tera" },
+    "float32": { "flops": 40.1, "flops_unit": "tera" },
+    "float64": { "flops": 0.62, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4070 super": {
+    "int8": { "flops": 568, "flops_unit": "tera" },
+    "float8": { "flops": 568, "flops_unit": "tera" },
+    "float16": { "flops": 284, "flops_unit": "tera" },
+    "bfloat16": { "flops": 284, "flops_unit": "tera" },
+    "tfloat32": { "flops": 142, "flops_unit": "tera" },
+    "float32": { "flops": 35.5, "flops_unit": "tera" },
+    "float64": { "flops": 0.55, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3080": {
+    "int8": { "flops": 238, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 119, "flops_unit": "tera" },
+    "bfloat16": { "flops": 119, "flops_unit": "tera" },
+    "tfloat32": { "flops": 59.5, "flops_unit": "tera" },
+    "float32": { "flops": 29.8, "flops_unit": "tera" },
+    "float64": { "flops": 0.46, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4070": {
+    "int8": { "flops": 466, "flops_unit": "tera" },
+    "float8": { "flops": 466, "flops_unit": "tera" },
+    "float16": { "flops": 233, "flops_unit": "tera" },
+    "bfloat16": { "flops": 233, "flops_unit": "tera" },
+    "tfloat32": { "flops": 116, "flops_unit": "tera" },
+    "float32": { "flops": 29.1, "flops_unit": "tera" },
+    "float64": { "flops": 0.45, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5060 ti": {
+    "int8": { "flops": 800, "flops_unit": "tera" },
+    "float8": { "flops": 800, "flops_unit": "tera" },
+    "float16": { "flops": 400, "flops_unit": "tera" },
+    "bfloat16": { "flops": 400, "flops_unit": "tera" },
+    "tfloat32": { "flops": 200, "flops_unit": "tera" },
+    "float32": { "flops": 40, "flops_unit": "tera" },
+    "float64": { "flops": 0.62, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3070 ti": {
+    "int8": { "flops": 174, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 87, "flops_unit": "tera" },
+    "bfloat16": { "flops": 87, "flops_unit": "tera" },
+    "tfloat32": { "flops": 43.5, "flops_unit": "tera" },
+    "float32": { "flops": 21.7, "flops_unit": "tera" },
+    "float64": { "flops": 0.34, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 2080 ti": {
+    "int8": { "flops": 214, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 107, "flops_unit": "tera" },
+    "bfloat16": { "flops": 0, "flops_unit": "tera" },
+    "tfloat32": { "flops": 0, "flops_unit": "tera" },
+    "float32": { "flops": 13.4, "flops_unit": "tera" },
+    "float64": { "flops": 0.42, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3070": {
+    "int8": { "flops": 163, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 81.5, "flops_unit": "tera" },
+    "bfloat16": { "flops": 81.5, "flops_unit": "tera" },
+    "tfloat32": { "flops": 40.7, "flops_unit": "tera" },
+    "float32": { "flops": 20.3, "flops_unit": "tera" },
+    "float64": { "flops": 0.32, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5060": {
+    "int8": { "flops": 600, "flops_unit": "tera" },
+    "float8": { "flops": 600, "flops_unit": "tera" },
+    "float16": { "flops": 300, "flops_unit": "tera" },
+    "bfloat16": { "flops": 300, "flops_unit": "tera" },
+    "tfloat32": { "flops": 150, "flops_unit": "tera" },
+    "float32": { "flops": 30, "flops_unit": "tera" },
+    "float64": { "flops": 0.46, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4060 ti": {
+    "int8": { "flops": 353, "flops_unit": "tera" },
+    "float8": { "flops": 353, "flops_unit": "tera" },
+    "float16": { "flops": 176, "flops_unit": "tera" },
+    "bfloat16": { "flops": 176, "flops_unit": "tera" },
+    "tfloat32": { "flops": 88, "flops_unit": "tera" },
+    "float32": { "flops": 22.1, "flops_unit": "tera" },
+    "float64": { "flops": 0.34, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3060 ti": {
+    "int8": { "flops": 130, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 65, "flops_unit": "tera" },
+    "bfloat16": { "flops": 65, "flops_unit": "tera" },
+    "tfloat32": { "flops": 32.5, "flops_unit": "tera" },
+    "float32": { "flops": 16.2, "flops_unit": "tera" },
+    "float64": { "flops": 0.25, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 2080 super": {
+    "int8": { "flops": 178, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 89, "flops_unit": "tera" },
+    "bfloat16": { "flops": 0, "flops_unit": "tera" },
+    "tfloat32": { "flops": 0, "flops_unit": "tera" },
+    "float32": { "flops": 11.1, "flops_unit": "tera" },
+    "float64": { "flops": 0.35, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5090 laptop": {
+    "int8": { "flops": 2200, "flops_unit": "tera" },
+    "float8": { "flops": 2200, "flops_unit": "tera" },
+    "float16": { "flops": 1100, "flops_unit": "tera" },
+    "bfloat16": { "flops": 1100, "flops_unit": "tera" },
+    "tfloat32": { "flops": 550, "flops_unit": "tera" },
+    "float32": { "flops": 110, "flops_unit": "tera" },
+    "float64": { "flops": 1.7, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4090 laptop": {
+    "int8": { "flops": 660, "flops_unit": "tera" },
+    "float8": { "flops": 660, "flops_unit": "tera" },
+    "float16": { "flops": 330, "flops_unit": "tera" },
+    "bfloat16": { "flops": 330, "flops_unit": "tera" },
+    "tfloat32": { "flops": 165, "flops_unit": "tera" },
+    "float32": { "flops": 33, "flops_unit": "tera" },
+    "float64": { "flops": 0.51, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5080 laptop": {
+    "int8": { "flops": 1600, "flops_unit": "tera" },
+    "float8": { "flops": 1600, "flops_unit": "tera" },
+    "float16": { "flops": 800, "flops_unit": "tera" },
+    "bfloat16": { "flops": 800, "flops_unit": "tera" },
+    "tfloat32": { "flops": 400, "flops_unit": "tera" },
+    "float32": { "flops": 80, "flops_unit": "tera" },
+    "float64": { "flops": 1.25, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4080 laptop": {
+    "int8": { "flops": 490, "flops_unit": "tera" },
+    "float8": { "flops": 490, "flops_unit": "tera" },
+    "float16": { "flops": 245, "flops_unit": "tera" },
+    "bfloat16": { "flops": 245, "flops_unit": "tera" },
+    "tfloat32": { "flops": 122, "flops_unit": "tera" },
+    "float32": { "flops": 24.5, "flops_unit": "tera" },
+    "float64": { "flops": 0.38, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5070 ti laptop": {
+    "int8": { "flops": 1200, "flops_unit": "tera" },
+    "float8": { "flops": 1200, "flops_unit": "tera" },
+    "float16": { "flops": 600, "flops_unit": "tera" },
+    "bfloat16": { "flops": 600, "flops_unit": "tera" },
+    "tfloat32": { "flops": 300, "flops_unit": "tera" },
+    "float32": { "flops": 60, "flops_unit": "tera" },
+    "float64": { "flops": 0.93, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 3080 ti laptop": {
+    "int8": { "flops": 150, "flops_unit": "tera" },
+    "float8": { "flops": 0, "flops_unit": "tera" },
+    "float16": { "flops": 75, "flops_unit": "tera" },
+    "bfloat16": { "flops": 75, "flops_unit": "tera" },
+    "tfloat32": { "flops": 37.5, "flops_unit": "tera" },
+    "float32": { "flops": 18.7, "flops_unit": "tera" },
+    "float64": { "flops": 0.29, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5070 laptop": {
+    "int8": { "flops": 900, "flops_unit": "tera" },
+    "float8": { "flops": 900, "flops_unit": "tera" },
+    "float16": { "flops": 450, "flops_unit": "tera" },
+    "bfloat16": { "flops": 450, "flops_unit": "tera" },
+    "tfloat32": { "flops": 225, "flops_unit": "tera" },
+    "float32": { "flops": 45, "flops_unit": "tera" },
+    "float64": { "flops": 0.7, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4070 laptop": {
+    "int8": { "flops": 323, "flops_unit": "tera" },
+    "float8": { "flops": 323, "flops_unit": "tera" },
+    "float16": { "flops": 161, "flops_unit": "tera" },
+    "bfloat16": { "flops": 161, "flops_unit": "tera" },
+    "tfloat32": { "flops": 80.5, "flops_unit": "tera" },
+    "float32": { "flops": 16.1, "flops_unit": "tera" },
+    "float64": { "flops": 0.25, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 5060 laptop": {
+    "int8": { "flops": 500, "flops_unit": "tera" },
+    "float8": { "flops": 500, "flops_unit": "tera" },
+    "float16": { "flops": 250, "flops_unit": "tera" },
+    "bfloat16": { "flops": 250, "flops_unit": "tera" },
+    "tfloat32": { "flops": 125, "flops_unit": "tera" },
+    "float32": { "flops": 25, "flops_unit": "tera" },
+    "float64": { "flops": 0.39, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4060 laptop": {
+    "int8": { "flops": 237, "flops_unit": "tera" },
+    "float8": { "flops": 237, "flops_unit": "tera" },
+    "float16": { "flops": 118, "flops_unit": "tera" },
+    "bfloat16": { "flops": 118, "flops_unit": "tera" },
+    "tfloat32": { "flops": 59, "flops_unit": "tera" },
+    "float32": { "flops": 11.8, "flops_unit": "tera" },
+    "float64": { "flops": 0.18, "flops_unit": "tera" }
+  },
+  "nvidia geforce rtx 4050 laptop": {
+    "int8": { "flops": 180, "flops_unit": "tera" },
+    "float8": { "flops": 180, "flops_unit": "tera" },
+    "float16": { "flops": 90, "flops_unit": "tera" },
+    "bfloat16": { "flops": 90, "flops_unit": "tera" },
+    "tfloat32": { "flops": 45, "flops_unit": "tera" },
+    "float32": { "flops": 9.0, "flops_unit": "tera" },
+    "float64": { "flops": 0.14, "flops_unit": "tera" }
+  }
+}

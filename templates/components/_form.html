@@ -1,0 +1,347 @@
+<div class="relative max-w-5xl mx-auto my-6 sm:my-12 p-5 sm:p-10 bg-white rounded-3xl border border-slate-200 shadow-2xl shadow-blue-600/10 font-['Poppins',sans-serif] text-slate-800">
+
+  <!-- Blurred blue-600 background shapes -->
+  <div class="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none" aria-hidden="true">
+    <div class="absolute -top-24 -left-20 w-72 h-72 rounded-full bg-blue-600/15 blur-3xl"></div>
+    <div class="absolute -bottom-28 -right-20 w-80 h-72 rounded-full bg-blue-600/10 blur-3xl"></div>
+  </div>
+
+  <!-- Header -->
+  <div class="relative mb-8">
+    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">Model Training Calculator</h2>
+    <p class="mt-1 text-sm text-slate-500">Estimate training time from model size, tokens, hardware and efficiency.</p>
+  </div>
+
+  <!-- Form -->
+  <form action="/" method="POST" id="calc-form" class="relative">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+
+      <!-- ROW 1 / CELL 1: Parameters + unit -->
+      <div>
+        <label for="parameters" class="block text-sm font-medium text-slate-700 mb-2">Parameters</label>
+        <div class="flex">
+          <input
+            type="number"
+            id="parameters"
+            name="parameters"
+            placeholder="e.g. 7"
+            step="any"
+            min="0"
+            required
+            class="min-w-0 flex-1 px-4 py-3 text-sm rounded-l-xl border border-slate-200 bg-white placeholder-slate-400 hover:border-blue-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition"
+          />
+          <div class="relative flex">
+            <select
+              id="parameters_unit"
+              name="parameters_unit"
+              aria-label="Parameters unit"
+              class="px-3 text-sm font-semibold text-blue-600 rounded-r-xl border border-l-0 border-slate-200 bg-slate-50 cursor-pointer focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition"
+            >
+              <option value="M">M</option>
+              <option value="B" selected>B</option>
+              <option value="T">T</option>
+              <option value="QD">QD</option>
+            </select>
+          </div>
+        </div>
+        <p class="mt-2 text-xs text-slate-400">M Million, B Billion, T Trillion, QD Quadrillion</p>
+      </div>
+
+      <!-- ROW 1 / CELL 2: Tokens + unit -->
+      <div>
+        <label for="tokens" class="block text-sm font-medium text-slate-700 mb-2">Training tokens</label>
+        <div class="flex">
+          <input
+            type="number"
+            id="tokens"
+            name="tokens"
+            placeholder="e.g. 1500"
+            step="any"
+            min="0"
+            required
+            class="min-w-0 flex-1 px-4 py-3 text-sm rounded-l-xl border border-slate-200 bg-white placeholder-slate-400 hover:border-blue-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition"
+          />
+          <div class="relative flex">
+            <select
+              id="tokens_unit"
+              name="tokens_unit"
+              aria-label="Tokens unit"
+              class="px-3 text-sm font-semibold text-blue-600 rounded-r-xl border border-l-0 border-slate-200 bg-slate-50 cursor-pointer focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition"
+            >
+              <option value="M">M</option>
+              <option value="B" selected>B</option>
+              <option value="T">T</option>
+              <option value="QD">QD</option>
+            </select>
+          </div>
+        </div>
+        <p class="mt-2 text-xs text-slate-400">M Million, B Billion, T Trillion, QD Quadrillion</p>
+      </div>
+
+      <!-- ROW 1 / CELL 3: Model precision dropdown (Jinja loop) -->
+      <div>
+        <label for="quantization" class="block text-sm font-medium text-slate-700 mb-2">Model precision</label>
+        <div class="relative">
+          <select
+            id="quantization"
+            name="quantization"
+            required
+            class="w-full pl-4 pr-10 py-3 text-sm rounded-xl border border-slate-200 bg-white appearance-none cursor-pointer focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition"
+          >
+            {% for precision in precisions %}
+              <option value="{{ precision }}">{{ precision.upper() }}</option>
+            {% endfor %}
+          </select>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-slate-400">
+            <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 / CELL 1: GPU dropdown (Jinja loop) -->
+      <div>
+        <label for="gpu" class="block text-sm font-medium text-slate-700 mb-2">GPU</label>
+        <div class="relative">
+          <select
+            id="gpu"
+            name="gpu"
+            required
+            class="w-full pl-4 pr-10 py-3 text-sm rounded-xl border border-slate-200 bg-white appearance-none cursor-pointer focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition"
+          >
+            {% for gpu in gpus %}
+              <option value="{{ gpu }}">{{ gpu.upper() }}</option>
+            {% endfor %}
+          </select>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-slate-400">
+            <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2 / CELL 2: No. Of GPU's (one switch: Slider / Number), integers 1 to 72 -->
+      <div class="relative flex flex-wrap items-center gap-x-3 gap-y-4 content-start">
+        <input type="checkbox" id="gpu_count_mode" name="gpu_count_mode" value="manual" class="peer sr-only" />
+
+        <span class="w-full flex items-center justify-between text-sm font-medium text-slate-700">
+          No. Of GPU's
+          <span data-live class="px-2.5 py-0.5 text-xs font-semibold text-blue-600 bg-blue-600/10 rounded-full">8</span>
+        </span>
+
+        <span class="text-xs font-medium text-blue-600 peer-checked:text-slate-400 transition">Slider</span>
+        <label for="gpu_count_mode" aria-label="Switch between slider and number input" class="relative inline-block w-11 h-6 rounded-full bg-slate-200 cursor-pointer transition peer-checked:bg-blue-600 peer-focus-visible:ring-4 peer-focus-visible:ring-blue-600/20 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-5"></label>
+        <span class="text-xs font-medium text-slate-400 peer-checked:text-blue-600 transition">Number</span>
+
+        <!-- Slider (default) -->
+        <div class="relative w-full block peer-checked:hidden pt-9">
+          <span data-bubble class="absolute top-0 left-0 -translate-x-1/2 px-2.5 py-1 text-xs font-semibold text-white bg-blue-600 rounded-lg shadow-lg shadow-blue-600/30 pointer-events-none transition-transform duration-150 after:content-[''] after:absolute after:left-1/2 after:-bottom-1 after:w-2 after:h-2 after:-ml-1 after:rotate-45 after:rounded-sm after:bg-blue-600">8</span>
+          <input type="range" id="gpu_count_slider" name="gpu_count" min="1" max="72" step="1" value="8" aria-label="No. Of GPU's slider" class="w-full h-2 cursor-pointer accent-blue-600" />
+          <div class="mt-2 flex justify-between text-xs text-slate-400">
+            <span>1</span><span>18</span><span>36</span><span>54</span><span>72</span>
+          </div>
+        </div>
+
+        <!-- Number -->
+        <div class="w-full hidden peer-checked:block">
+          <input type="number" id="gpu_count" name="gpu_count_number" min="1" max="72" step="1" inputmode="numeric" placeholder="e.g. 8 (1 to 72)" class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white placeholder-slate-400 hover:border-blue-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition" />
+        </div>
+      </div>
+
+      <!-- ROW 2 / CELL 3: MFU (one switch: Slider / Number), integers 1 to 100 -->
+      <div class="relative flex flex-wrap items-center gap-x-3 gap-y-4 content-start">
+        <input type="checkbox" id="mfu_mode" name="mfu_mode" value="manual" class="peer sr-only" />
+
+        <span class="w-full flex items-center justify-between text-sm font-medium text-slate-700">
+          MFU (%)
+          <span data-live class="px-2.5 py-0.5 text-xs font-semibold text-blue-600 bg-blue-600/10 rounded-full">50%</span>
+        </span>
+
+        <span class="text-xs font-medium text-blue-600 peer-checked:text-slate-400 transition">Slider</span>
+        <label for="mfu_mode" aria-label="Switch between slider and number input" class="relative inline-block w-11 h-6 rounded-full bg-slate-200 cursor-pointer transition peer-checked:bg-blue-600 peer-focus-visible:ring-4 peer-focus-visible:ring-blue-600/20 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:w-5 after:h-5 after:rounded-full after:bg-white after:shadow after:transition-transform peer-checked:after:translate-x-5"></label>
+        <span class="text-xs font-medium text-slate-400 peer-checked:text-blue-600 transition">Number</span>
+
+        <!-- Slider (default) -->
+        <div class="relative w-full block peer-checked:hidden pt-9">
+          <span data-bubble class="absolute top-0 left-0 -translate-x-1/2 px-2.5 py-1 text-xs font-semibold text-white bg-blue-600 rounded-lg shadow-lg shadow-blue-600/30 pointer-events-none transition-transform duration-150 after:content-[''] after:absolute after:left-1/2 after:-bottom-1 after:w-2 after:h-2 after:-ml-1 after:rotate-45 after:rounded-sm after:bg-blue-600">50%</span>
+          <input type="range" id="mfu" name="mfu" min="1" max="100" step="1" value="50" aria-label="MFU slider" class="w-full h-2 cursor-pointer accent-blue-600" />
+          <div class="mt-2 flex justify-between text-xs text-slate-400">
+            <span>1</span><span>25</span><span>50</span><span>75</span><span>100</span>
+          </div>
+        </div>
+
+        <!-- Number -->
+        <div class="w-full hidden peer-checked:block">
+          <input type="number" id="mfu" name="mfu_number" min="1" max="100" step="1" inputmode="numeric" placeholder="e.g. 50 (1 to 100)" class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 bg-white placeholder-slate-400 hover:border-blue-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition" />
+        </div>
+      </div>
+
+      <!-- ROW 3 / CELL 1: Calculate button -->
+      <div class="sm:col-span-2 lg:col-span-1 flex items-end">
+        <button
+          type="submit"
+          value="submit"
+          class="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 active:scale-[0.98] text-white text-sm font-medium py-3.5 px-6 rounded-xl shadow-lg shadow-blue-600/30 focus:outline-none focus:ring-4 focus:ring-blue-600/30 transition-all"
+        >
+          Calculate
+        </button>
+      </div>
+
+      <!-- ROW 3 / CELLS 2-3: Output (time taken) -->
+      <div class="sm:col-span-2">
+        <label for="OutputArea" class="block text-sm font-medium text-slate-700 mb-2">Estimated training time</label>
+        <textarea
+          id="OutputArea"
+          readonly
+          rows="5"
+          placeholder="Your result will appear here"
+          class="w-full p-4 resize-none rounded-xl border border-blue-600/20 bg-blue-600/5 text-lg font-semibold text-blue-600 placeholder-slate-300 placeholder:font-normal placeholder:text-sm focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10"
+        >{{ result or '' }}</textarea>
+      </div>
+
+    </div>
+  </form>
+
+  <script>
+  (function () {
+    var form = document.getElementById('calc-form');
+
+    /* Smooth dropdown panels built from the real selects (selects stay in the form) */
+    var names = { M: 'Million', B: 'Billion', T: 'Trillion', QD: 'Quadrillion' };
+    var chev = '<svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>';
+    var closers = [];
+    function closeAll(except) { closers.forEach(function (c) { if (c !== except) c(); }); }
+
+    form.querySelectorAll('select').forEach(function (s) {
+      var unit = s.id.indexOf('_unit') > 0, box = s.parentElement;
+      var arrow = box.querySelector('svg');
+      s.classList.add('sr-only'); s.tabIndex = -1;
+
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = unit
+        ? 'h-full flex items-center gap-1.5 px-3 text-sm font-semibold text-blue-600 rounded-r-xl border border-l-0 border-slate-200 bg-slate-50 hover:bg-blue-50 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition'
+        : 'w-full text-left pl-4 pr-10 py-3 text-sm rounded-xl border border-slate-200 bg-white hover:border-blue-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 transition';
+      if (unit) { b.innerHTML = '<span></span>' + chev; arrow = b.querySelector('svg'); }
+      else b.innerHTML = '<span></span>';
+      var label = b.querySelector('span');
+
+      var ul = document.createElement('ul');
+      ul.className = (unit ? 'right-0 w-44 ' : 'left-0 right-0 ') + 'absolute top-full mt-2 z-50 max-h-60 overflow-auto p-1.5 rounded-xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10 origin-top transition duration-150 ease-out';
+
+      function show(on) {
+        ul.classList.toggle('opacity-0', !on); ul.classList.toggle('scale-95', !on);
+        ul.classList.toggle('invisible', !on); ul.classList.toggle('-translate-y-1', !on);
+        if (arrow) arrow.classList.toggle('rotate-180', on);
+      }
+      function refresh() {
+        label.textContent = s.options[s.selectedIndex] ? s.options[s.selectedIndex].text : '';
+        Array.prototype.forEach.call(ul.children, function (li, i) {
+          var sel = i === s.selectedIndex;
+          li.classList.toggle('text-blue-600', sel); li.classList.toggle('font-semibold', sel);
+          li.lastChild.classList.toggle('opacity-0', !sel);
+        });
+      }
+      Array.prototype.forEach.call(s.options, function (o, i) {
+        var li = document.createElement('li');
+        li.className = 'flex items-center justify-between gap-3 px-3 py-2.5 text-sm text-slate-700 rounded-lg cursor-pointer hover:bg-blue-50 hover:text-blue-700 transition-colors';
+        li.innerHTML = '<span>' + o.text + (unit ? ' <small class="font-normal text-slate-400">' + names[o.value] + '</small>' : '') + '</span><span class="text-blue-600">&#10003;</span>';
+        li.onclick = function () { s.selectedIndex = i; s.dispatchEvent(new Event('change', { bubbles: true })); refresh(); show(false); };
+        ul.appendChild(li);
+      });
+
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var willOpen = ul.classList.contains('invisible');
+        closeAll(); show(willOpen);
+      };
+      closers.push(function () { show(false); });
+      box.appendChild(b); box.appendChild(ul);
+      show(false); refresh();
+    });
+    document.addEventListener('click', function () { closeAll(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+
+    /* Live value bubble for both sliders */
+    ['gpu_count', 'mfu'].forEach(function (name) {
+      var r = form.querySelector('input[name="' + name + '"]');
+      var n = form.querySelector('input[name="' + name + '_number"]');
+      var t = form.querySelector('input[name="' + name + '_mode"]');
+      var bubble = r.parentElement.querySelector('[data-bubble]');
+      var pill = r.parentElement.parentElement.querySelector('[data-live]');
+      var suffix = name === 'mfu' ? '%' : '';
+
+      function paint() {
+        var p = (r.value - r.min) / (r.max - r.min) * 100;
+        bubble.style.left = 'calc(' + p + '% + ' + ((0.5 - p / 100) * 16) + 'px)';
+        bubble.textContent = pill.textContent = r.value + suffix;
+      }
+      function fit(v) { return Math.max(+r.min, Math.min(+r.max, Math.round(v))); }
+
+      r.addEventListener('input', paint);
+      r.addEventListener('pointerdown', function () { bubble.classList.add('scale-110', '-translate-y-0.5'); });
+      ['pointerup', 'pointercancel', 'blur'].forEach(function (ev) {
+        r.addEventListener(ev, function () { bubble.classList.remove('scale-110', '-translate-y-0.5'); });
+      });
+      n.addEventListener('change', function () { if (n.value !== '') { n.value = r.value = fit(n.value); paint(); } });
+      t.addEventListener('change', function () {
+        if (t.checked && n.value === '') n.value = r.value;
+        else if (!t.checked && n.value !== '') r.value = fit(n.value);
+        paint();
+      });
+      paint();
+    });
+  })();
+  </script>
+</div>
+<!-- <div> -->
+<!-- {% for gpu in gpus %} -->
+<!-- <h1>{{ gpu }} </h1> -->
+<!-- {% endfor %} -->
+<!-- </div> -->
+
+
+
+  <script>
+  document.getElementById('calc-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target)
+
+    try{
+      const response = await fetch('/', {
+        method: 'POST',
+        body: formData
+
+      });
+
+      const resultJson = await response.json();
+      console.log(resultJson);
+      
+      const searchKey = "not supported";
+      if (Object.hasOwn(resultJson, searchKey)) {
+        console.log("Unsupported Precision Selected!");
+        document.getElementById("OutputArea").value = resultJson["Selected GPU"] + " " + "is not supporting " + resultJson["Selected Precision"] + " Precision";
+      }
+      
+
+      timeTaken = resultJson[0]["Training Time taken"];
+      timeTakeninMinutes = resultJson[0]["Training time taken in minutes"];
+      timeTakeninHours = resultJson[0]["Training time taken in hours"];
+      timeTakeninDays = resultJson[0]["Training Time taken in days"];
+      timeTakeninWeeks = resultJson[0]["Training time taken in weeks"];
+      console.log(resultJson[0]["Training Time taken"]);
+
+      document.getElementById("OutputArea").value = timeTaken + "\n" + timeTakeninMinutes + "\n" + timeTakeninHours + "\n" + timeTakeninDays + "\n" + timeTakeninWeeks;
+
+      } catch (error) {
+        console.error('Error Computing results:', error);
+        document.getElementById('outputArea').value = "Error Computing results.";
+        }
+
+      });
+      
+  </script>
+  
